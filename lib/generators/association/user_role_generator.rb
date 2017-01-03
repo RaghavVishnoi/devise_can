@@ -1,19 +1,11 @@
 require 'rails/generators/active_record'
-class RoleGenerator < ActiveRecord::Generators::Base
+class UserRoleGenerator < ActiveRecord::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
 
   argument :attributes, type: :array, default: [], banner: "field:type field:type"	
 
-      def copy_role_migration
-      	if (behavior == :invoke && model_exists?("role")) || (behavior == :revoke && role_migration_exists?)
-          migration_template "role_migration_existing.rb", "db/migrate/add_name_to_roles.rb", migration_version: migration_version
-        else
-          migration_template "role_migration.rb", "db/migrate/create_roles.rb", migration_version: migration_version
-        end
-      end
-
       def copy_user_roles_migration
-      	if (behavior == :invoke && model_exists?("user_role")) || (behavior == :revoke && user_role_migration_exists?)
+      	if (behavior == :invoke && model_exists?) || (behavior == :revoke && user_role_migration_exists?)
           migration_template "user_role_migration_existing.rb", "db/migrate/add_user_roles_association_to_user_roles.rb", migration_version: migration_version
         else
           migration_template "user_role_migration.rb", "db/migrate/create_user_roles.rb", migration_version: migration_version
@@ -23,8 +15,8 @@ class RoleGenerator < ActiveRecord::Generators::Base
      
 
 private
-      def model_exists?(model_name)
-        File.exist?(File.join(destination_root, model_path(model_name)))
+      def model_exists?
+        File.exist?(File.join(destination_root, model_path))
       end
 
       def role_migration_exists?
@@ -39,8 +31,8 @@ private
         @migration_path ||= File.join("db", "migrate")
       end
 
-      def model_path(model_name)
-        @model_path ||= File.join("app", "models", "#{model_name}.rb")
+      def model_path
+        @model_path ||= File.join("app", "models", "user_role.rb")
       end
 
       def migration_version
@@ -51,13 +43,6 @@ private
 
       def rails5?
         Rails.version.start_with? '5'
-      end
-
-      def role_migration_data
-<<RUBY
-      		t.string :name
-
-RUBY
       end
 
        def user_role_migration_data

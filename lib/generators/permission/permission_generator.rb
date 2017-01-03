@@ -29,6 +29,18 @@ class PermissionGenerator < ActiveRecord::Generators::Base
     end
   end
 
+  def copy_module_action_model
+      copy_file "module_action_model.rb","app/models/module_action.rb"
+  end
+
+  def copy_module_group_model
+    copy_file "module_group_model.rb","app/models/module_group.rb"
+  end
+
+  def copy_module_permission_model
+    copy_file "module_permission_model.rb","app/models/module_permission.rb"
+  end
+
   private
       def model_exists?(model_name)
         File.exist?(File.join(destination_root, model_path(model_name)))

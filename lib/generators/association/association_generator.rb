@@ -36,6 +36,9 @@ class AssociationGenerator < ActiveRecord::Generators::Base
         end
       end
 
+      def copy_user_model
+        copy_file "user_model_existing.rb","app/models/user.rb"
+      end
      
 
 private

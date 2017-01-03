@@ -1,5 +1,6 @@
 require 'rails/generators/active_record'
 class AssociationGenerator < ActiveRecord::Generators::Base
+  include Common
   source_root File.expand_path('../templates', __FILE__)
 
   argument :attributes, type: :array, default: [], banner: "field:type field:type"	

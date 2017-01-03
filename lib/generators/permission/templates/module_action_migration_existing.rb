@@ -1,6 +1,6 @@
 class AddNameToModuleAction < ActiveRecord::Migration
   def self.up
-    change_column :module_action,:name,:string
+    change_column :module_actions,:name,:string
   end
 
   def self.down

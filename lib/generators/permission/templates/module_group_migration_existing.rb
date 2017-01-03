@@ -1,6 +1,6 @@
 class AddNameToModuleGroup < ActiveRecord::Migration
   def self.up
-    change_column :module_group,:name,:string
+    change_column :module_groups,:name,:string
   end
 
   def self.down

@@ -30,7 +30,7 @@ class PermissionGenerator < ActiveRecord::Generators::Base
   end
 
   def copy_module_action_model
-      copy_file "module_action_model.rb","app/models/module_action.rb"
+    copy_file "module_action_model.rb","app/models/module_action.rb"
   end
 
   def copy_module_group_model
@@ -39,6 +39,10 @@ class PermissionGenerator < ActiveRecord::Generators::Base
 
   def copy_module_permission_model
     copy_file "module_permission_model.rb","app/models/module_permission.rb"
+  end
+
+  def copy_ability
+  	copy_file "ability.rb","app/models/ability.rb"
   end
 
   private

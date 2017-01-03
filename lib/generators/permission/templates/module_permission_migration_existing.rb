@@ -1,8 +1,8 @@
 class AddGroupActionToModulePermission < ActiveRecord::Migration
   def self.up
-    change_column :module_permission,:module_group_id,:integer,index: true
-    change_column :module_permission,:module_action_id,:integer,index: true
-  	change_column :module_permission,:role_id,:integer,index: true
+    change_column :module_permissions,:module_group_id,:integer,index: true
+    change_column :module_permissions,:module_action_id,:integer,index: true
+  	change_column :module_permissions,:role_id,:integer,index: true
   end
 
   def self.down

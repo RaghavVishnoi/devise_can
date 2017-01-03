@@ -20,6 +20,24 @@ class AssociationGenerator < ActiveRecord::Generators::Base
         end
       end
 
+      def copy_role_model
+        if model_exists?("role")
+          copy_file "role_model_existing.rb","app/models/role.rb"
+        else
+          create_file "app/models/role.rb" 
+          copy_file "role_model.rb","app/models/role.rb"
+        end
+      end
+
+      def copy_user_role_model
+        if model_exists?("user_role")
+          copy_file "user_role_model_existing.rb","app/models/user_role.rb"
+        else
+          create_file "app/models/user_role.rb" 
+          copy_file "user_role_model.rb","app/models/user_role.rb"
+        end
+      end
+
      
 
 private

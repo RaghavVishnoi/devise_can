@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["Raghav.Singh@lptpl.com"]
 
   spec.summary       = %q{This gem is to use for devise,cancancan and user role association.}
-  spec.description   = %q{Enjoy the finctionality of this gem.}
+  spec.description   = %q{Enjoy the functionality of this gem.}
   spec.homepage      = "https://github.com/RaghavVishnoi/devise_can.git"
   spec.license       = "MIT"
 

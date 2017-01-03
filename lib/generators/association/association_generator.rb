@@ -58,7 +58,7 @@ private
       end
 
       def model_path(model_name)
-        @model_path ||= File.join("app", "models", "#{model_name}.rb")
+        File.join("app", "models", "#{model_name}.rb")
       end
 
       def migration_version

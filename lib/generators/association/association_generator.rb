@@ -8,7 +8,6 @@ class AssociationGenerator < ActiveRecord::Generators::Base
       	if (behavior == :invoke && model_exists?("role")) || (behavior == :revoke && role_migration_exists?)
           migration_template "role_migration_existing.rb", "db/migrate/add_name_to_roles.rb", migration_version: migration_version
         else
-          invoke "active_record:model", ["role"], migration: false 
           migration_template "role_migration.rb", "db/migrate/create_roles.rb", migration_version: migration_version
         end
       end
@@ -17,7 +16,6 @@ class AssociationGenerator < ActiveRecord::Generators::Base
       	if (behavior == :invoke && model_exists?("user_role")) || (behavior == :revoke && user_role_migration_exists?)
           migration_template "user_role_migration_existing.rb", "db/migrate/add_user_roles_association_to_user_roles.rb", migration_version: migration_version
         else
-          invoke "active_record:model", ["user_role"], migration: false 
           migration_template "user_role_migration.rb", "db/migrate/create_user_roles.rb", migration_version: migration_version
         end
       end
